@@ -5,7 +5,9 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Properties;
 
 import org.apache.commons.io.IOUtils;
@@ -34,49 +36,36 @@ public class GitHubServiceImpl implements GitHubService {
 
 	@Override
 	public List<GHClassroom> fetchClassrooms() throws IOException {
-		Client client = ClientBuilder.newClient(new ClientConfig());
-
-		WebTarget webTarget = client.target(BASE_GITHUB_URL).path("classrooms");
-
-		Invocation.Builder invocationBuilder = webTarget.request(MediaType.APPLICATION_JSON)
-				.header(HttpHeaders.AUTHORIZATION, "Bearer " + getGitHubKeyFromPropertyFile());
-
-		Response response = invocationBuilder.get();
+		Response response = callGitHubApi("classrooms");
 
 		GHClassroom[] classrooms = response.readEntity(GHClassroom[].class);
-
 		return Arrays.asList(classrooms);
 	}
 	
 	@Override
 	public GHClassroom fetchClassroom(Long classroomId) throws IOException {
-		Client client = ClientBuilder.newClient(new ClientConfig());
-
-		WebTarget webTarget = client.target(BASE_GITHUB_URL).path("classrooms/" + classroomId);
-
-		Invocation.Builder invocationBuilder = webTarget.request(MediaType.APPLICATION_JSON)
-				.header(HttpHeaders.AUTHORIZATION, "Bearer " + getGitHubKeyFromPropertyFile());
-
-		Response response = invocationBuilder.get();
+		Response response = callGitHubApi("classrooms/" + classroomId);
 
 		GHClassroom classroom = response.readEntity(GHClassroom.class);
-
 		return classroom;
+	}
+	
+	@Override
+	public GHAssignment fetchAssignment(Long assignmentId) throws IOException {
+		Response response = callGitHubApi("assignments/" + 	assignmentId);
+
+		GHAssignment assignment = response.readEntity(GHAssignment.class);
+		return assignment;
 	}
 
 	@Override
 	public List<GHAssignment> fetchAssignmentsForClassroom(GHClassroom classroom, 
-			Integer page, Integer perPage) throws IOException {
-		Client client = ClientBuilder.newClient(new ClientConfig());
-
-		WebTarget webTarget = client.target(BASE_GITHUB_URL).path("classrooms/" + classroom.getId() + "/assignments");
-
-		webTarget = webTarget.queryParam("page", page);
-		webTarget = webTarget.queryParam("per_page", perPage);
-		Invocation.Builder invocationBuilder = webTarget.request(MediaType.APPLICATION_JSON)
-				.header(HttpHeaders.AUTHORIZATION, "Bearer " + getGitHubKeyFromPropertyFile());
-
-		Response response = invocationBuilder.get();
+			Long page, Long perPage) throws IOException {
+		Map<String, Object> queryParams = new HashMap<>();
+		queryParams.put("page", page);
+		queryParams.put("per_page", perPage);
+		
+		Response response = callGitHubApi("classrooms/" + classroom.getId() + "/assignments", queryParams);
 
 		GHAssignment[] assignments = response.readEntity(GHAssignment[].class);
 
@@ -84,7 +73,7 @@ public class GitHubServiceImpl implements GitHubService {
 	}
 
 	@Override
-	public List<GHStudentAssignment> fetchStudentAssignments(GHAssignment assignment, Integer page, Integer perPage) throws IOException {
+	public List<GHStudentAssignment> fetchStudentAssignments(GHAssignment assignment, Long page, Long perPage) throws IOException {
 		return fetchStudentAssignments(assignment.getId(), page, perPage);
 
 	}
@@ -93,19 +82,12 @@ public class GitHubServiceImpl implements GitHubService {
 	 * fetches accepted assignments for a specific assignment id.
 	 */
 	@Override
-	public List<GHStudentAssignment> fetchStudentAssignments(Long assignmentId, Integer page, Integer perPage) throws IOException {
-		Client client = ClientBuilder.newClient(new ClientConfig());
+	public List<GHStudentAssignment> fetchStudentAssignments(Long assignmentId, Long page, Long perPage) throws IOException {
+		Map<String, Object> queryParams = new HashMap<>();
+		queryParams.put("page", page);
+		queryParams.put("per_page", perPage);
 
-		WebTarget webTarget = client.target(BASE_GITHUB_URL)
-				.path("assignments/" + assignmentId + "/accepted_assignments");
-		
-		webTarget = webTarget.queryParam("page", page);
-		webTarget = webTarget.queryParam("per_page", perPage);
-
-		Invocation.Builder invocationBuilder = webTarget.request(MediaType.APPLICATION_JSON)
-				.header(HttpHeaders.AUTHORIZATION, "Bearer " + getGitHubKeyFromPropertyFile());
-
-		Response response = invocationBuilder.get();
+		Response response = callGitHubApi("assignments/" + assignmentId + "/accepted_assignments", queryParams);
 
 		GHStudentAssignment[] studentAssignments = response.readEntity(GHStudentAssignment[].class);
 
@@ -158,6 +140,26 @@ public class GitHubServiceImpl implements GitHubService {
 			}
 		}
 		return files;
+	}
+	
+	private Response callGitHubApi(String path) throws IOException {
+		return callGitHubApi(path, new HashMap<>());
+	}
+	
+	private Response callGitHubApi(String path, Map<String, Object> queryParams) throws IOException {
+		Client client = ClientBuilder.newClient(new ClientConfig());
+
+		WebTarget webTarget = client.target(BASE_GITHUB_URL).path(path);
+
+		for(String key : queryParams.keySet()) {
+			webTarget = webTarget.queryParam(key, queryParams.get(key));
+		}
+		Invocation.Builder invocationBuilder = webTarget.request(MediaType.APPLICATION_JSON)
+				.header(HttpHeaders.AUTHORIZATION, "Bearer " + getGitHubKeyFromPropertyFile());
+
+		Response response = invocationBuilder.get();
+		
+		return response;
 	}
 
 }

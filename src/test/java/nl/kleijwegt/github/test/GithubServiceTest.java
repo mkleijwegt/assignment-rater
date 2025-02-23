@@ -43,9 +43,9 @@ public class GithubServiceTest {
 			}
 			
 		}
-		Integer MAX_PAGES = 6;
-		Integer page = 0;
-		Integer perPage = 100;
+		Long MAX_PAGES = 6L;
+		Long page = 0L;
+		Long perPage = 100L;
 		List<GHAssignment> assignments = new ArrayList<>();
 		while(page < MAX_PAGES) {
 			assignments.addAll(gitHubService.fetchAssignmentsForClassroom(classroomToUse, page, perPage));

@@ -61,6 +61,9 @@ public class GHAssignment {
 	private String deadline;
 
 	private GHClassroom classroom;
+	
+	@XmlElement(name = "starter_code_repository")
+	private GHRepository startCodeRepository;
 
 	public Long getId() {
 		return id;
@@ -204,5 +207,13 @@ public class GHAssignment {
 
 	public void setClassroom(GHClassroom classroom) {
 		this.classroom = classroom;
+	}
+	
+	public GHRepository getStartCodeRepository() {
+		return startCodeRepository;
+	}
+	
+	public void setStartCodeRepository(GHRepository startCodeRepository) {
+		this.startCodeRepository = startCodeRepository;
 	}
 }

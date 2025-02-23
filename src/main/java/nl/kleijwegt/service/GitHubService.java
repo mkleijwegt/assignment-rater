@@ -17,12 +17,14 @@ public interface GitHubService {
 	
 	GHClassroom fetchClassroom(Long classroomId) throws IOException;
 	
-	public List<GHAssignment> fetchAssignmentsForClassroom(GHClassroom classroom, 
-			Integer page, Integer perPage) throws IOException;
+	GHAssignment fetchAssignment(Long assignmentId) throws IOException;
 	
-	List<GHStudentAssignment> fetchStudentAssignments(GHAssignment assignment, Integer page, Integer perPage) throws IOException;
+	List<GHAssignment> fetchAssignmentsForClassroom(GHClassroom classroom, 
+			Long page, Long perPage) throws IOException;
+	
+	List<GHStudentAssignment> fetchStudentAssignments(GHAssignment assignment, Long page, Long perPage) throws IOException;
 
-	List<GHStudentAssignment> fetchStudentAssignments(Long assignmentId, Integer page, Integer perPage) throws IOException;
+	List<GHStudentAssignment> fetchStudentAssignments(Long assignmentId, Long page, Long perPage) throws IOException;
 	
 	GHRepository fetchRepository(GitHub github, String fullName) throws IOException;
 	

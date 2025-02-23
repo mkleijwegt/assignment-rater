@@ -48,8 +48,8 @@ public class OllamaSymfonyAssignmentsTest {
 		
 		final Long ASSIGNMENT_ID = 729275L;
 		final String BRANCH = "exercise-three";
-		Integer page = 1;
-		final Integer PER_PAGE = 50;
+		Long page = 1L;
+		final Long PER_PAGE = 50L;
 		
 		GitHub github = GitHubBuilder.fromPropertyFile().build();
 		
