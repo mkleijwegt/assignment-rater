@@ -1,0 +1,18 @@
+{
+		"assignment_id": 16151675,
+		"title": "Tussentoets PHP P05",
+		"questions": [
+			{
+				"title": "Opdracht 1",
+				"text": "Maak een script waarbij de dag van de week en de numerieke datum van vandaag getoond wordt. De dag van de week ga jij uitlezen uit een array. LET OP! De dag van de week MOET in het Nederlands eruit komen!Schrijf een array waarbij de dagen van de week opgenomen worden. (maandag, dinsdag, enz.)Kom erachter welke dag (numeriek) van de week het is door gebruik te maken van de php functie date()Toon op het scherm de goede dag van de week vanuit de array.Gebruik de functie date() om de dag, maand en jaar van vandaag te tonen in nummers.",
+				"repository_directory": "/",
+				"repository_file": "opdracht1.php"
+			},
+			{
+				"title": "Opdracht 2",
+				"text": "Maak een database ‘ggz’ aan met de tabel ‘customer’. De tabel ‘customer’ bevat vijf kolommen. id (int), firstname (varchar), lastname (varchar), weight (decimal 3,1), length (int).Maak een script dat de uitvoer van alle gegevens van alle klanten laat zien.",
+				"repository_directory": "/",
+				"repository_file": "opdracht2.php"
+			}
+		]
+}
