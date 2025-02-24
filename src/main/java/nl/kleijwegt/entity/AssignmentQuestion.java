@@ -1,5 +1,12 @@
 package nl.kleijwegt.entity;
 
+/**
+* AssignmentQuestion is a class that represents a question. 
+* It is used to assess coding questions.
+* 
+* @author Mark Kleijwegt
+* 
+*/
 public class AssignmentQuestion {
 
 	private String title;

@@ -32,7 +32,7 @@ import nl.kleijwegt.service.PdfService;
 @Service
 public class AssignmentRaterServiceImpl implements AssignmentRaterService{
 	
-final static Logger log = LogManager.getLogger();
+	final static Logger log = LogManager.getLogger();
 	
 	@Autowired
 	private GitHubService gitHubService;
@@ -54,15 +54,18 @@ final static Logger log = LogManager.getLogger();
 	
 	private void rateStudentAssignment(Assignment assignment, GHStudentAssignment studentAssignment) throws IOException, DocumentException {
 		String studentLogin = studentAssignment.getStudents().iterator().next().getLogin();
-		String filePath = studentLogin + "-" + studentAssignment.getAssignment().getTitle() + ".pdf";
-		String resultFolder = assignment.getPdfResultFolder();
+		log.debug("Generating for student: " + studentLogin);
+		
+		String resultFolder = "result" + System.getProperty("file.separator") + assignment.getPdfResultFolder();
 		
 		if(!pdfService.documentOrFolderExists(resultFolder)) {
 			Path path = Paths.get(resultFolder);
 			Files.createDirectories(path);
 		}
 		
-		if(pdfService.documentOrFolderExists(resultFolder + System.getProperty("file.separator") + filePath)) {
+		String filePath = resultFolder + System.getProperty("file.separator") + studentLogin + "-" + studentAssignment.getAssignment().getTitle() + ".pdf";
+		
+		if(pdfService.documentOrFolderExists(filePath)) {
 			//if the file is already present we'll skip it
 			return;
 		}
@@ -79,7 +82,7 @@ final static Logger log = LogManager.getLogger();
 			fullCode += fileContent;
 		}
 		pdfService.addTableSection(table, assignment.getPdfPromptHeading(), assignment.getPrompt());
-		String feedback = ollamaService.ollamaGenerate(assignment.getPrompt() + "\"" + fullCode + "\"", getAIModelFromEnum(assignment.getAiModel()));
+		String feedback = ollamaService.ollamaGenerate(assignment.getPrompt() + "\"" + fullCode + "\"", getAiModelFromEnum(assignment.getAiModel()));
 		pdfService.addTableSection(table, assignment.getPdfFeedbackHeading(), feedback);
 		pdfService.writeDocument(table, filePath);
 	}
@@ -134,7 +137,7 @@ final static Logger log = LogManager.getLogger();
 		return fileTypes;
 	}
 	
-	private AIModel getAIModelFromEnum(String aiModelName) {
+	private AIModel getAiModelFromEnum(String aiModelName) {
 		for(AIModel aiModel : AIModel.values()){
 			if(aiModel.name.equals(aiModelName)) {
 				//return AI Model that matches the given name

@@ -4,6 +4,21 @@ import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+/**
+* Assignment is a class that represents an assignment json file. 
+* It is used to load in a json file providing all the parameters needed to rate a classroom assignment.
+* 
+* For instance: the assignmentId property is the id for the classroom assignment. 
+* The branch property is used to load a specific branch in the assignment.
+* The pdf properties are used for pdf generation.
+* The aiModel specifies which AI model to use.
+* The prompt is the overall prompt used to rate the assignment.
+* The folders are used to decide on which folders to read from the GitHub repository.
+* The fileTypes are used to decide on which fileTypes to include.
+* 
+* @author Mark Kleijwegt
+* 
+*/
 public class Assignment {
 
 	@JsonProperty("assignment_id")
@@ -143,10 +158,4 @@ public class Assignment {
 	public void setQuestions(List<AssignmentQuestion> questions) {
 		this.questions = questions;
 	}
-
-
-
-	
-
-	
 }

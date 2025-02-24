@@ -1,5 +1,12 @@
 package nl.kleijwegt.entity;
 
+/**
+* AssignmentFolder is a class that represents a folder. 
+* It is used to decide on which folders to include from the repository.
+* 
+* @author Mark Kleijwegt
+* 
+*/
 public class AssignmentFolder {
 	
 	private String folder;

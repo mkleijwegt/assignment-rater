@@ -8,7 +8,7 @@
 		"pdf_prompt_heading": "Gebruikte prompt:",
 		"pdf_feedback_heading": "Gegenereerde AI feedback:",
 		"pdf_result_folder": "symfony-oefen-exercise-three",
-		"prompt": "Geef positieve feedback om de gegeven code te verbeteren. Geef alleen code suggesties voor twig, PHP en Symfony 6.4. De code bevat onder andere een route voor het teruggeven van ingredienten (Ingredient entity) opgehaald uit de database die worden weergegeven op een twig in een tabel met behulp van een for loop. Ook bevat de code een route voor het teruggeven van één ingredient weergegeven op een twig. Daarnaast zit er ook nog een route bij voor het weergeven van fietsen uit de database (Bike entity) en de mogelijkheid om details op te vragen van een fiets. Als er in onderstaande code niets kan worden gevonden voor deze functionaliteit geef dan terug dat er geen feedback kan worden gegeven. De code:",
+		"prompt": "Geef positieve feedback in het Nederlands om de gegeven code te verbeteren. Geef alleen code suggesties voor twig, PHP en Symfony 6.4. De code bevat onder andere een route voor het teruggeven van ingredienten (Ingredient entity) opgehaald uit de database die worden weergegeven op een twig in een tabel met behulp van een for loop. Ook bevat de code een route voor het teruggeven van één ingredient weergegeven op een twig. Daarnaast zit er ook nog een route bij voor het weergeven van fietsen uit de database (Bike entity) en de mogelijkheid om details op te vragen van een fiets. Als er in onderstaande code niets kan worden gevonden voor deze functionaliteit geef dan terug dat er geen feedback kan worden gegeven. De code:",
 		"file_types": [
 			{
 				"file_type": ".php"
