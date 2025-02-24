@@ -22,9 +22,11 @@ public interface GitHubService {
 	List<GHAssignment> fetchAssignmentsForClassroom(GHClassroom classroom, 
 			Long page, Long perPage) throws IOException;
 	
-	List<GHStudentAssignment> fetchStudentAssignments(GHAssignment assignment, Long page, Long perPage) throws IOException;
+	List<GHStudentAssignment> fetchAllStudentAssignmentsForAssignmentId(Long assignmentId) throws IOException;
+	
+	List<GHStudentAssignment> fetchStudentAssignmentsForAssignment(GHAssignment assignment, Long page, Long perPage) throws IOException;
 
-	List<GHStudentAssignment> fetchStudentAssignments(Long assignmentId, Long page, Long perPage) throws IOException;
+	List<GHStudentAssignment> fetchStudentAssignmentsForAssignmentId(Long assignmentId, Long page, Long perPage) throws IOException;
 	
 	GHRepository fetchRepository(GitHub github, String fullName) throws IOException;
 	

@@ -56,7 +56,7 @@ public class OllamaSymfonyAssignmentsTest {
 		List<GHStudentAssignment> studentAssignments = new ArrayList<>();
 		
 		while(page < 3) {
-			studentAssignments.addAll(gitHubService.fetchStudentAssignments(ASSIGNMENT_ID, page, PER_PAGE));
+			studentAssignments.addAll(gitHubService.fetchStudentAssignmentsForAssignmentId(ASSIGNMENT_ID, page, PER_PAGE));
 			page++;
 		}
 		

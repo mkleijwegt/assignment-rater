@@ -71,10 +71,31 @@ public class GitHubServiceImpl implements GitHubService {
 
 		return Arrays.asList(assignments);
 	}
+	
+	@Override
+	public List<GHStudentAssignment> fetchAllStudentAssignmentsForAssignmentId(Long assignmentId) throws IOException {
+		final Long PER_PAGE = 50L;
+		
+		GHAssignment assignment = fetchAssignment(assignmentId);
+		Long accepted = assignment.getAccepted();
+		
+		//maxPages is number of accepted assignments divided by per page. (i.e. 2 = 100 / 50).
+		Long maxPages = (accepted / PER_PAGE);
+		//we add 1 to maxPages in case we need another page. (i.e. 1 = 90 / 50).
+		if(assignment.getAccepted() % PER_PAGE > 0) {
+			maxPages++;
+		}
+		
+		List<GHStudentAssignment> studentAssignments = new ArrayList<GHStudentAssignment>();
+		for(Long page = 1L; page <= maxPages; page++) {
+			studentAssignments.addAll(fetchStudentAssignmentsForAssignment(assignment, page, PER_PAGE));
+		}
+		return studentAssignments;
+	}
 
 	@Override
-	public List<GHStudentAssignment> fetchStudentAssignments(GHAssignment assignment, Long page, Long perPage) throws IOException {
-		return fetchStudentAssignments(assignment.getId(), page, perPage);
+	public List<GHStudentAssignment> fetchStudentAssignmentsForAssignment(GHAssignment assignment, Long page, Long perPage) throws IOException {
+		return fetchStudentAssignmentsForAssignmentId(assignment.getId(), page, perPage);
 
 	}
 
@@ -82,7 +103,7 @@ public class GitHubServiceImpl implements GitHubService {
 	 * fetches accepted assignments for a specific assignment id.
 	 */
 	@Override
-	public List<GHStudentAssignment> fetchStudentAssignments(Long assignmentId, Long page, Long perPage) throws IOException {
+	public List<GHStudentAssignment> fetchStudentAssignmentsForAssignmentId(Long assignmentId, Long page, Long perPage) throws IOException {
 		Map<String, Object> queryParams = new HashMap<>();
 		queryParams.put("page", page);
 		queryParams.put("per_page", perPage);
@@ -161,5 +182,4 @@ public class GitHubServiceImpl implements GitHubService {
 		
 		return response;
 	}
-
 }
