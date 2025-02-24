@@ -11,6 +11,8 @@ public interface OllamaService {
 	 */
 	String ollamaChat(String prompt, AIModel model);
 	
+	String ollamaGenerate(String prompt, AIModel model);
+	
 	String ollamaGenerate(String prompt, AIModel model, Options options);
 
 }

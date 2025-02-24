@@ -16,6 +16,7 @@ import org.glassfish.jersey.http.HttpHeaders;
 import org.kohsuke.github.GHContent;
 import org.kohsuke.github.GHRepository;
 import org.kohsuke.github.GitHub;
+import org.kohsuke.github.GitHubBuilder;
 import org.springframework.stereotype.Service;
 
 import jakarta.ws.rs.client.Client;
@@ -135,7 +136,8 @@ public class GitHubServiceImpl implements GitHubService {
 	}
 
 	@Override
-	public GHRepository fetchRepository(GitHub github, String fullName) throws IOException {
+	public GHRepository fetchRepository(String fullName) throws IOException {
+		GitHub github = GitHubBuilder.fromPropertyFile().build();
 		return github.getRepository(fullName);
 	}
 

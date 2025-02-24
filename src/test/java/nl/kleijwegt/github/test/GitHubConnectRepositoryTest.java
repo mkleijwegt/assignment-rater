@@ -12,8 +12,6 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.kohsuke.github.GHContent;
 import org.kohsuke.github.GHRepository;
-import org.kohsuke.github.GitHub;
-import org.kohsuke.github.GitHubBuilder;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringRunner;
@@ -32,10 +30,10 @@ public class GitHubConnectRepositoryTest {
 	
 	@Test
 	public void testConnection() throws IOException{
-		GitHub gitHub = GitHubBuilder.fromPropertyFile().build();
-		GHRepository repository = gitHubService.fetchRepository(gitHub, "ROCMondriaanTIN/sd23-p07-symfony-oefen-Areberohirwa");
+		GHRepository repository = gitHubService.fetchRepository("ROCMondriaanTIN/sd23-p07-symfony-oefen-mkleijwegt");
 		List<String> folders = new ArrayList<>();
 		folders.add("/src/Controller");
+		folders.add("/src/Entity");
 		folders.add("/templates");
 		List<GHContent> contents = gitHubService.fetchFilesFromRepository(repository, folders, "exercise-one");
 		for(GHContent content : contents) {

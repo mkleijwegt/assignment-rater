@@ -12,8 +12,6 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.kohsuke.github.GHContent;
 import org.kohsuke.github.GHRepository;
-import org.kohsuke.github.GitHub;
-import org.kohsuke.github.GitHubBuilder;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringRunner;
@@ -51,8 +49,6 @@ public class OllamaSymfonyAssignmentsTest {
 		Long page = 1L;
 		final Long PER_PAGE = 50L;
 		
-		GitHub github = GitHubBuilder.fromPropertyFile().build();
-		
 		List<GHStudentAssignment> studentAssignments = new ArrayList<>();
 		
 		while(page < 3) {
@@ -66,8 +62,8 @@ public class OllamaSymfonyAssignmentsTest {
 			String filePath = studentLogin + "-" + studentAssignment.getAssignment().getTitle() + ".pdf";
 			
 			//only if the file is not present we'll go through all steps generate it
-			if(!pdfService.documentExists(filePath)) {
-				GHRepository repository = gitHubService.fetchRepository(github, studentAssignment.getRepository().getFullName());
+			if(!pdfService.documentOrFolderExists(filePath)) {
+				GHRepository repository = gitHubService.fetchRepository(studentAssignment.getRepository().getFullName());
 				List<String> folders = new ArrayList<>();
 				folders.add("src/Controller");
 				folders.add("src/Entity");

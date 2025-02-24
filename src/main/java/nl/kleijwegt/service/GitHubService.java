@@ -5,7 +5,6 @@ import java.util.List;
 
 import org.kohsuke.github.GHContent;
 import org.kohsuke.github.GHRepository;
-import org.kohsuke.github.GitHub;
 
 import nl.kleijwegt.entity.github.GHAssignment;
 import nl.kleijwegt.entity.github.GHClassroom;
@@ -28,7 +27,7 @@ public interface GitHubService {
 
 	List<GHStudentAssignment> fetchStudentAssignmentsForAssignmentId(Long assignmentId, Long page, Long perPage) throws IOException;
 	
-	GHRepository fetchRepository(GitHub github, String fullName) throws IOException;
+	GHRepository fetchRepository(String fullName) throws IOException;
 	
 	List<GHContent> fetchFilesFromRepository(GHRepository repository, List<String> folders, 
 			String branchName) throws IOException;

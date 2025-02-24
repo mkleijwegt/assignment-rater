@@ -7,7 +7,7 @@ import com.itextpdf.text.pdf.PdfPTable;
 
 public interface PdfService {
 	
-	Boolean documentExists(String path);
+	boolean documentOrFolderExists(String path);
 
 	void writeDocument(PdfPTable table, String path) throws FileNotFoundException, DocumentException;
 	

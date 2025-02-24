@@ -22,7 +22,7 @@ import nl.kleijwegt.service.PdfService;
 public class PdfServiceImpl implements PdfService {
 	
 	@Override
-	public Boolean documentExists(String path) {
+	public boolean documentOrFolderExists(String path) {
 		Path filePath = Paths.get(path);
 		//if the file is already there return true
 		if (Files.exists(filePath)) {
@@ -34,7 +34,7 @@ public class PdfServiceImpl implements PdfService {
 	@Override
 	public void writeDocument(PdfPTable table, String path) throws FileNotFoundException, DocumentException {
 		//if the file is already there we skip generation
-		if (documentExists(path)) {
+		if (documentOrFolderExists(path)) {
 			return;
 		}
 		
@@ -54,7 +54,8 @@ public class PdfServiceImpl implements PdfService {
 	@Override
 	public PdfPTable createAssignmentTable(String studentName, String introduction) {
 		PdfPTable table = new PdfPTable(1);
-
+		//making sure long text won't set a blank page in the PDF
+		table.setSplitLate(false);
 		// gray header is generated where the student login name is written
 		PdfPCell header = new PdfPCell();
 		header.setBackgroundColor(BaseColor.LIGHT_GRAY);

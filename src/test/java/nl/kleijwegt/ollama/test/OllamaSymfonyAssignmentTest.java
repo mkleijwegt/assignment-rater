@@ -12,8 +12,6 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.kohsuke.github.GHContent;
 import org.kohsuke.github.GHRepository;
-import org.kohsuke.github.GitHub;
-import org.kohsuke.github.GitHubBuilder;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringRunner;
@@ -46,12 +44,10 @@ public class OllamaSymfonyAssignmentTest {
 	@Test
 	public void testSymfony() throws IOException, DocumentException{
 		
-		final String REPOSITORY_NAME = "ROCMondriaanTIN/sd23-p07-symfony-oefen-Areberohirwa";
+		final String REPOSITORY_NAME = "ROCMondriaanTIN/sd23-p07-symfony-oefen-mkleijwegt";
 		final String BRANCH = "exercise-one";
 		
-		GitHub gitHub = GitHubBuilder.fromPropertyFile().build();
-		
-		GHRepository repository = gitHubService.fetchRepository(gitHub, REPOSITORY_NAME);
+		GHRepository repository = gitHubService.fetchRepository(REPOSITORY_NAME);
 		List<String> folders = new ArrayList<>();
 		folders.add("/src/Controller");
 		folders.add("/templates");

@@ -45,6 +45,11 @@ public class OllamaServiceImpl implements OllamaService {
 
 		return promptResponse.getMessage().getContent();
 	}
+	
+	@Override
+	public String ollamaGenerate(String prompt, AIModel model) {
+		return ollamaGenerate(prompt, model, new Options());
+	}
 
 	@Override
 	public String ollamaGenerate(String prompt, AIModel model, Options options) {
@@ -63,6 +68,10 @@ public class OllamaServiceImpl implements OllamaService {
 
 		return promptResponse.getResponse();
 	}
+
+
+
+
 
 	
 
