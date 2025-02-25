@@ -10,6 +10,12 @@ import nl.kleijwegt.entity.github.GHAssignment;
 import nl.kleijwegt.entity.github.GHClassroom;
 import nl.kleijwegt.entity.github.GHStudentAssignment;
 
+/**
+* GitHubService is an interface that can be used to call various GitHub API endpoints as well as some other convenience functions.
+* 
+* @author Mark Kleijwegt
+* 
+*/
 public interface GitHubService {
 	
 	List<GHClassroom> fetchClassrooms() throws IOException;

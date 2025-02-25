@@ -2,7 +2,7 @@ package nl.kleijwegt.entity;
 
 /**
 * AssignmentQuestion is a class that represents a question. 
-* It is used to assess coding questions.
+* It is used to assess coding questions. TODO not used yet, implement questions
 * 
 * @author Mark Kleijwegt
 * 

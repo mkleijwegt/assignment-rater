@@ -4,6 +4,18 @@ import jakarta.xml.bind.annotation.XmlAccessType;
 import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlRootElement;
 
+
+/**
+* SimplePromptRequest is a class representing a prompt that can be send to ollama.
+* A prompt requires a prompt text and the model.
+* Stream is set to false by default as we are only interested in the complete result.
+* 
+* Various options can be provided like for instance the temperature and repeat penalty.
+* Please see the {@link nl.kleijwegt.entity.ai.Options} class to see what is supported.
+* 
+* @author Mark Kleijwegt
+* 
+*/
 @XmlRootElement(name = "simplePromptRequest")
 @XmlAccessorType(XmlAccessType.FIELD)
 public class SimplePromptRequest {

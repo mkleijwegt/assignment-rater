@@ -8,6 +8,15 @@ import jakarta.xml.bind.annotation.XmlElement;
 import jakarta.xml.bind.annotation.XmlRootElement;
 import jakarta.xml.bind.annotation.XmlSchemaType;
 
+/**
+* PromptResponse is a class representing a response that is received from ollama after sending a PromptRequest.
+* Please see the {@link nl.kleijwegt.entity.ai.PromptRequest} class for the request.
+* 
+* Various properties are returned by the response. The message property contains the response text by ollama.
+* 
+* @author Mark Kleijwegt
+* 
+*/
 @XmlRootElement(name = "promptResponse")
 @XmlAccessorType(XmlAccessType.FIELD)
 public class PromptResponse {

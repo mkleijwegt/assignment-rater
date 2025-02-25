@@ -7,6 +7,7 @@ import jakarta.xml.bind.annotation.XmlRootElement;
 
 /**
 * Message is a class representing a chat message that can be send when prompting ollama.
+* In a message a certain role can be assumed like for instance 'user', 'teacher' or any other role you can think of.
 * 
 * @author Mark Kleijwegt
 * 

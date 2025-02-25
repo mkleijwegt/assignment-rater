@@ -27,9 +27,7 @@ public class JsonAssignmentServiceImpl implements JsonAssignmentService {
 		ClassLoader classloader = Thread.currentThread().getContextClassLoader();
 		URL url = classloader.getResource(assignmentPath + System.getProperty("file.separator") + assignmentFileName);
 		Path path = Paths.get(url.toURI());
-		Assignment assignment = mapper.readValue(
-		         path.toFile(), 
-		         Assignment.class);
+		Assignment assignment = mapper.readValue(path.toFile(), Assignment.class);
 		return assignment;
 	}
 

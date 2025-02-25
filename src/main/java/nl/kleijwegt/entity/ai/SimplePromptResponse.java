@@ -8,6 +8,15 @@ import jakarta.xml.bind.annotation.XmlElement;
 import jakarta.xml.bind.annotation.XmlRootElement;
 import jakarta.xml.bind.annotation.XmlSchemaType;
 
+/**
+* SimplePromptResponse is a class representing a response that is received from ollama after sending a SimplePromptRequest.
+* Please see the {@link nl.kleijwegt.entity.ai.SimplePromptRequest} class for the request.
+* 
+* Various properties are returned by the response. Right now only the response property is used as it contains the feedback.
+* 
+* @author Mark Kleijwegt
+* 
+*/
 @XmlRootElement(name = "simplePromptResponse")
 @XmlAccessorType(XmlAccessType.FIELD)
 public class SimplePromptResponse {
