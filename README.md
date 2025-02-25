@@ -9,7 +9,7 @@ Features
 * Supports assignment json files where instructions can be provided what classroom assignment to rate and how to rate it.
 * Automatically downloads GitHub repositories from a classroom assignment (per student).
 * Generates PDF files containing feedback as provided by the AI model.
-* Also possible to rate a single repository (no classroom needed). See AssignmentRaterSingleRepositoryTest
+* Also possible to rate a single repository (no classroom needed). See AssignmentRaterSingleRepositoryTest.
 
 Developer Guides
 ---------------------
@@ -25,7 +25,7 @@ To get this up and running the easiest way is to download Eclipse from https://w
 * Make sure it has two lines: 
 login={your_organisation_name} 
 oauth={your_token}
-* WARNING: Do not ever share your GitHub access token with anyone!
+* WARNING: Do not ever share your GitHub access token with anyone! The program only uses it to connect to GitHub and is only kept in memory for the duration of the program.
 * Setup a json file in the assignment-files directory with your assignment details (there are a few examples present).
 * Run AssignmentRaterFromFileTest as a JUnit test to make it rate a classroom assignment.
 * The resulting PDF files can be found in the project 'result' directory.
