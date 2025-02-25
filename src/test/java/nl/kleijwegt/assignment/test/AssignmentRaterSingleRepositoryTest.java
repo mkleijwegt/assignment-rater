@@ -20,7 +20,13 @@ import nl.kleijwegt.entity.AssignmentFolder;
 import nl.kleijwegt.entity.ai.AIModel;
 import nl.kleijwegt.service.AssignmentRaterService;
 
-
+/**
+* AssignmentRaterSingleRepositoryTest can be run to rate a single repository (doesn't use classroom)
+* Make sure to setup the parameters below the way you see fit
+* 
+* @author Mark Kleijwegt
+* 
+*/
 @ContextConfiguration({"classpath:/applicationContext.xml"})
 @RunWith(SpringRunner.class)
 public class AssignmentRaterSingleRepositoryTest {
@@ -63,10 +69,6 @@ public class AssignmentRaterSingleRepositoryTest {
 		folders.add(new AssignmentFolder("/templates"));
 		assignment.setFolders(folders);
 		
-		
 		assignmentRaterService.rateStudentAssignment(assignment, REPOSITORY_NAME, ASSIGNMENT_TITLE, STUDENT_LOGIN);
-
-		
-		
 	}
 }

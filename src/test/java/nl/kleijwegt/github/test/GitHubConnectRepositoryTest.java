@@ -18,7 +18,12 @@ import org.springframework.test.context.junit4.SpringRunner;
 
 import nl.kleijwegt.service.GitHubService;
 
-
+/**
+* GitHubConnectRepositoryTest can be run to test the connection to a repository. It will list the files in there.
+* 
+* @author Mark Kleijwegt
+* 
+*/
 @ContextConfiguration({"classpath:/applicationContext.xml"})
 @RunWith(SpringRunner.class)
 public class GitHubConnectRepositoryTest {

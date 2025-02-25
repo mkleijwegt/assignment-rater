@@ -17,11 +17,6 @@
   http://www.springframework.org/schema/aop 
   http://www.springframework.org/schema/aop/spring-aop.xsd">
 
-		
-	<bean id="springApplicationContext" class="nl.kleijwegt.spring.SpringApplicationContext"/>
-
-
-
 	<tx:annotation-driven />
 
 	<context:component-scan base-package="nl.kleijwegt" />

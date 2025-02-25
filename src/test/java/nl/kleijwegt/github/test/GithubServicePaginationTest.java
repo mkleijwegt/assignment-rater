@@ -14,6 +14,12 @@ import org.springframework.test.context.junit4.SpringRunner;
 import nl.kleijwegt.entity.github.classroom.GHStudentAssignment;
 import nl.kleijwegt.service.GitHubService;
 
+/**
+* GithubServicePaginationTest can be run to test if you get the expected number of student assignments from a classroom assignment.
+* 
+* @author Mark Kleijwegt
+* 
+*/
 @ContextConfiguration({"classpath:/applicationContext.xml"})
 @RunWith(SpringRunner.class)
 public class GithubServicePaginationTest {

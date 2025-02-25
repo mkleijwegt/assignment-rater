@@ -17,6 +17,12 @@ import nl.kleijwegt.entity.ai.AIModel;
 import nl.kleijwegt.entity.ai.Options;
 import nl.kleijwegt.service.OllamaService;
 
+/**
+* OllamaPromptTest can be run to test a prompt against the ollama server with the specified AI model.
+* 
+* @author Mark Kleijwegt
+* 
+*/
 @ContextConfiguration({"classpath:/applicationContext.xml"})
 @RunWith(SpringRunner.class)
 public class OllamaPromptTest {

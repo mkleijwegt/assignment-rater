@@ -14,7 +14,12 @@ import com.itextpdf.text.pdf.PdfPTable;
 
 import nl.kleijwegt.service.PdfService;
 
-
+/**
+* PdfTest can be run to test and verify what the PDF file may look like.
+* 
+* @author Mark Kleijwegt
+* 
+*/
 @ContextConfiguration({"classpath:/applicationContext.xml"})
 @RunWith(SpringRunner.class)
 public class PdfTest {

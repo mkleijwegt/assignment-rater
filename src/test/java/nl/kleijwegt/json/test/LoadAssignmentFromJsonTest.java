@@ -16,6 +16,12 @@ import com.itextpdf.text.DocumentException;
 import nl.kleijwegt.entity.Assignment;
 import nl.kleijwegt.service.JsonAssignmentService;
 
+/**
+* LoadAssignmentFromJsonTest can be run to test and see if your assignment file looks correct.
+* 
+* @author Mark Kleijwegt
+* 
+*/
 @ContextConfiguration({"classpath:/applicationContext.xml"})
 @RunWith(SpringRunner.class)
 public class LoadAssignmentFromJsonTest {

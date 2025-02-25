@@ -16,6 +16,16 @@ import nl.kleijwegt.entity.github.classroom.GHAssignment;
 import nl.kleijwegt.entity.github.classroom.GHClassroom;
 import nl.kleijwegt.service.GitHubService;
 
+/**
+* GithubServiceTest can be run to see your classroom id's and classroom assignment id's
+* Figuring out the id for an assignment can be a bit tricky. 
+* It is also possible to figure out the assignment id from the classroom web interface by inspecting the source code in your browser.
+* Go to the assignment page in the web interface and inspect the source code.
+* Search for the string 'gh classroom clone student-repos -a' and you'll find the id of the assignment.
+* 
+* @author Mark Kleijwegt
+* 
+*/
 @ContextConfiguration({"classpath:/applicationContext.xml"})
 @RunWith(SpringRunner.class)
 public class GithubServiceTest {
