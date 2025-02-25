@@ -21,11 +21,25 @@ import nl.kleijwegt.entity.ai.SimplePromptRequest;
 import nl.kleijwegt.entity.ai.SimplePromptResponse;
 import nl.kleijwegt.service.OllamaService;
 
+/**
+* OllamaServiceImpl contains the implementation functions of the interface {@link nl.kleijwegt.service.OllamaService}
+* 
+* @author Mark Kleijwegt
+* 
+*/
 @Service
 public class OllamaServiceImpl implements OllamaService {
 	
+	//change this if your ollama server runs on a different URL
 	public static final String OLLAMA_BASE_URL = "http://localhost:11434/api/";
 
+	/**
+	 * <p>Function that sends a prompt to the chat endpoint of the ollama server
+	 * </p>
+	 * @param prompt the prompt used to chat with the ollama server
+	 * @param model the AI model to use by the ollama server
+	 * @return A String containing the response of the ollama server
+	 */
 	@Override
 	public String ollamaChat(String prompt, AIModel model) {
 		Client client = ClientBuilder.newClient(new ClientConfig());
@@ -46,11 +60,26 @@ public class OllamaServiceImpl implements OllamaService {
 		return promptResponse.getMessage().getContent();
 	}
 	
+	/**
+	 * <p>Function that sends a prompt to the generate endpoint of the ollama server with default options
+	 * </p>
+	 * @param prompt the prompt used by the ollama server to generate a response
+	 * @param model the AI model to use by the ollama server
+	 * @return A String containing the response of the ollama server
+	 */
 	@Override
 	public String ollamaGenerate(String prompt, AIModel model) {
 		return ollamaGenerate(prompt, model, new Options());
 	}
 
+	/**
+	 * <p>Function that sends a prompt to the generate endpoint of the ollama server
+	 * </p>
+	 * @param prompt the prompt used by the ollama server to generate a response
+	 * @param model the AI model to use by the ollama server
+	 * @param options instructing ollama server what options to use
+	 * @return A String containing the response of the ollama server
+	 */
 	@Override
 	public String ollamaGenerate(String prompt, AIModel model, Options options) {
 		Client client = ClientBuilder.newClient(new ClientConfig());
@@ -68,11 +97,4 @@ public class OllamaServiceImpl implements OllamaService {
 
 		return promptResponse.getResponse();
 	}
-
-
-
-
-
-	
-
 }

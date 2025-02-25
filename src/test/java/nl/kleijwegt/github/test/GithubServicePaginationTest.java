@@ -11,7 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringRunner;
 
-import nl.kleijwegt.entity.github.GHStudentAssignment;
+import nl.kleijwegt.entity.github.classroom.GHStudentAssignment;
 import nl.kleijwegt.service.GitHubService;
 
 @ContextConfiguration({"classpath:/applicationContext.xml"})

@@ -1,4 +1,4 @@
-package nl.kleijwegt.entity.github;
+package nl.kleijwegt.entity.github.classroom;
 
 import java.math.BigDecimal;
 import java.util.List;

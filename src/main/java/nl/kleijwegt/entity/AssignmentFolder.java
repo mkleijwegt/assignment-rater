@@ -11,6 +11,14 @@ public class AssignmentFolder {
 	
 	private String folder;
 	
+	public AssignmentFolder() {
+		
+	}
+	
+	public AssignmentFolder(String folder) {
+		this.folder = folder;
+	}
+	
 	public String getFolder() {
 		return folder;
 	}

@@ -25,9 +25,9 @@ import jakarta.ws.rs.client.Invocation;
 import jakarta.ws.rs.client.WebTarget;
 import jakarta.ws.rs.core.MediaType;
 import jakarta.ws.rs.core.Response;
-import nl.kleijwegt.entity.github.GHAssignment;
-import nl.kleijwegt.entity.github.GHClassroom;
-import nl.kleijwegt.entity.github.GHStudentAssignment;
+import nl.kleijwegt.entity.github.classroom.GHAssignment;
+import nl.kleijwegt.entity.github.classroom.GHClassroom;
+import nl.kleijwegt.entity.github.classroom.GHStudentAssignment;
 import nl.kleijwegt.service.GitHubService;
 
 /**
@@ -44,7 +44,7 @@ public class GitHubServiceImpl implements GitHubService {
 	/**
 	 * <p>Function that fetches all classrooms available in your organisation
 	 * </p>
-	 * @return List of GHClassroom objects. See {@link nl.kleijwegt.entity.github.GHClassroom}
+	 * @return List of GHClassroom objects. See {@link nl.kleijwegt.entity.github.classroom.GHClassroom}
 	 */
 	@Override
 	public List<GHClassroom> fetchClassrooms() throws IOException {
@@ -58,7 +58,7 @@ public class GitHubServiceImpl implements GitHubService {
 	 * <p>Function that fetches a classroom by classRoomId
 	 * </p>
 	 * @param classRoomId the id of the classroom
-	 * @return A GHClassroom object. See {@link nl.kleijwegt.entity.github.GHClassroom}
+	 * @return A GHClassroom object. See {@link nl.kleijwegt.entity.github.classroom.GHClassroom}
 	 */
 	@Override
 	public GHClassroom fetchClassroom(Long classroomId) throws IOException {
@@ -72,7 +72,7 @@ public class GitHubServiceImpl implements GitHubService {
 	 * <p>Function that fetches a classroom assignment by assignmentId
 	 * </p>
 	 * @param assignmentId the id of the assignment
-	 * @return A GHAssignment object. See {@link nl.kleijwegt.entity.github.GHAssignment}
+	 * @return A GHAssignment object. See {@link nl.kleijwegt.entity.github.classroom.GHAssignment}
 	 */
 	@Override
 	public GHAssignment fetchAssignment(Long assignmentId) throws IOException {
@@ -88,7 +88,7 @@ public class GitHubServiceImpl implements GitHubService {
 	 * @param classroom the classroom to fetch the assignments for
 	 * @param page the page number to fetch the assignments from (start at 1)
 	 * @param perPage the amount of assignments per page (100 is the GitHub API limit but 50 seems a better number in terms of reliance and speed)
-	 * @return List of GHAssignment objects. See {@link nl.kleijwegt.entity.github.GHAssignment}
+	 * @return List of GHAssignment objects. See {@link nl.kleijwegt.entity.github.classroom.GHAssignment}
 	 */
 	@Override
 	public List<GHAssignment> fetchAssignmentsForClassroom(GHClassroom classroom, 
@@ -108,7 +108,7 @@ public class GitHubServiceImpl implements GitHubService {
 	 * <p>Function that fetches all student assignments available in a classroom assignment
 	 * </p>
 	 * @param assignmentId the classroom assignment to fetch the student assignments for
-	 * @return List of GHStudentAssignment objects. See {@link nl.kleijwegt.entity.github.GHStudentAssignment}
+	 * @return List of GHStudentAssignment objects. See {@link nl.kleijwegt.entity.github.classroom.GHStudentAssignment}
 	 */
 	@Override
 	public List<GHStudentAssignment> fetchAllStudentAssignmentsForAssignmentId(Long assignmentId) throws IOException {
@@ -137,7 +137,7 @@ public class GitHubServiceImpl implements GitHubService {
 	 * @param assignment the classroom assignment to fetch the student assignments for
 	 * @param page the page number to fetch the student assignments from (start at 1)
 	 * @param perPage the amount of student assignments per page (100 is the GitHub API limit but 50 seems a better number in terms of reliance and speed)
-	 * @return List of GHStudentAssignment objects. See {@link nl.kleijwegt.entity.github.GHStudentAssignment}
+	 * @return List of GHStudentAssignment objects. See {@link nl.kleijwegt.entity.github.classroom.GHStudentAssignment}
 	 */
 	@Override
 	public List<GHStudentAssignment> fetchStudentAssignmentsForAssignment(GHAssignment assignment, Long page, Long perPage) throws IOException {
@@ -151,7 +151,7 @@ public class GitHubServiceImpl implements GitHubService {
 	 * @param assignmentId the classroom assignment id to fetch the student assignments for
 	 * @param page the page number to fetch the student assignments from (start at 1)
 	 * @param perPage the amount of student assignments per page (100 is the GitHub API limit but 50 seems a better number in terms of reliance and speed)
-	 * @return List of GHStudentAssignment objects. See {@link nl.kleijwegt.entity.github.GHStudentAssignment}
+	 * @return List of GHStudentAssignment objects. See {@link nl.kleijwegt.entity.github.classroom.GHStudentAssignment}
 	 */
 	@Override
 	public List<GHStudentAssignment> fetchStudentAssignmentsForAssignmentId(Long assignmentId, Long page, Long perPage) throws IOException {

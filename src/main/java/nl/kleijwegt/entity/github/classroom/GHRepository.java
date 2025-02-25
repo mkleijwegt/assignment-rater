@@ -1,4 +1,4 @@
-package nl.kleijwegt.entity.github;
+package nl.kleijwegt.entity.github.classroom;
 
 import jakarta.xml.bind.annotation.XmlAccessType;
 import jakarta.xml.bind.annotation.XmlAccessorType;

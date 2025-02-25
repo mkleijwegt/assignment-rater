@@ -20,7 +20,7 @@ import nl.kleijwegt.service.JsonAssignmentService;
 
 @ContextConfiguration({"classpath:/applicationContext.xml"})
 @RunWith(SpringRunner.class)
-public class AssignmentRaterTest {
+public class AssignmentRaterFromFileTest {
 	
 	final static Logger log = LogManager.getLogger();
 	
@@ -33,7 +33,7 @@ public class AssignmentRaterTest {
 	@Test
 	public void testAssignment() throws IOException, DocumentException, URISyntaxException{
 		
-		Assignment assignment = jsonAssignmentService.readFile("symfony_oefen_p07.json");
+		Assignment assignment = jsonAssignmentService.readFile("symfony_tussentoets_p07.json");
 		
 		assignmentRaterService.rateAssignment(assignment);
 			

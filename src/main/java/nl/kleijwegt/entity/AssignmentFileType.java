@@ -14,6 +14,14 @@ public class AssignmentFileType {
 	@JsonProperty("file_type")
 	private String fileType;
 	
+	public AssignmentFileType() {
+		
+	}
+	
+	public AssignmentFileType(String fileType) {
+		this.fileType = fileType;
+	}
+	
 	public String getFileType() {
 		return fileType;
 	}
