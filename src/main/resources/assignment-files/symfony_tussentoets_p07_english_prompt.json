@@ -1,0 +1,38 @@
+{
+		"assignment_id": 759484,
+		"ai_model": "qwen2.5-coder:14b",
+		"title": "Symfony Tussentoets P07",
+		"branch": "main",
+		"pdf_heading": "Hieronder vind je de feedback op de tussentoets. Let op: deze feedback is AI gegenereerd en kan daardoor onjuistheden bevatten.",
+		"pdf_file_heading": "Jouw uitwerking van",
+		"pdf_prompt_heading": "Gebruikte prompt:",
+		"pdf_feedback_heading": "Gegenereerde AI feedback:",
+		"pdf_result_folder": "symfony-tussentoets-p07-english-prompt",
+		"prompt": "Answer the following questions about the provided code. 1. Is there a Student entity with the properties firstName, lastName, email and age? 2. Is there an age property on the Student entity with datatype int. 3. Is there a page that displays all students (using a for loop) fetched from the database using the Student entity? 4. Is there a page that displays one student by id fetched from the database using the Student entity? 5. Is there a Vacation entity with the properties name, fromDate, tillDate? 6. Are the fromDate and tillDate on the Vacation entity using the datatype DateTimeInterface? 7. Is there a page that displays all vacations (using a for loop) fetched from the database using the Vacation entity? Provide positive feedback on the code and only give code suggestions for Symfony 6.4. The code:",
+		"temperature": "0",
+		"top_k": "1",
+		"top_p": "0.1",
+		"seed": "123",
+		"file_types": [
+			{
+				"file_type": ".php"
+			},
+			{
+				"file_type": ".html.twig"
+			}
+		],
+		"folders": [
+			{
+				"folder": "/src/Controller"
+			},
+			{
+				"folder": "/src/Entity"
+			},
+			{
+				"folder": "/templates"
+			}
+		],
+		"questions": [
+			
+		]
+}

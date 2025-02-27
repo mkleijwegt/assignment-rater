@@ -35,8 +35,10 @@ public class OllamaPromptTest {
 	@Test
 	public void testPrompt() throws IOException, DocumentException{
 		Options options = new Options();
-		options.setTemperature(new BigDecimal("0.1"));
-		
+		options.setTemperature(new BigDecimal("0"));
+		options.setSeed(new BigDecimal("222"));
+		options.setTopK(new BigDecimal("1"));
+		options.setTopP(new BigDecimal("0.1"));
 		
 		String response = ollamaService.ollamaGenerate("Schrijf een programma in PHP die voor een viercijferig getal het aantal stappen tot 6174 berekend.", 
 				AIModel.QWEN_2_5_CODER_7B,

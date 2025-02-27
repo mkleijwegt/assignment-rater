@@ -39,7 +39,7 @@ public class AssignmentRaterFromFileTest {
 	@Test
 	public void testAssignment() throws IOException, DocumentException, URISyntaxException{
 		
-		Assignment assignment = jsonAssignmentService.readFile("symfony_tussentoets_p07.json");
+		Assignment assignment = jsonAssignmentService.readFile("symfony_tussentoets_p07_english_prompt.json");
 		
 		assignmentRaterService.rateAssignment(assignment);
 			

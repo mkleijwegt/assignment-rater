@@ -23,6 +23,7 @@ import nl.kleijwegt.entity.Assignment;
 import nl.kleijwegt.entity.AssignmentFileType;
 import nl.kleijwegt.entity.AssignmentFolder;
 import nl.kleijwegt.entity.ai.AIModel;
+import nl.kleijwegt.entity.ai.Options;
 import nl.kleijwegt.entity.github.classroom.GHStudentAssignment;
 import nl.kleijwegt.service.AssignmentRaterService;
 import nl.kleijwegt.service.GitHubService;
@@ -132,8 +133,11 @@ public class AssignmentRaterServiceImpl implements AssignmentRaterService{
 		}
 		//add a table section containing the prompt used
 		pdfService.addTableSection(table, assignment.getPdfPromptHeading(), assignment.getPrompt());
+		//create options object with information from assignment
+		Options options = createOptionsBasedOnAssignment(assignment);
 		//call ollama with the prompt, full code and AI model
-		String feedback = ollamaService.ollamaGenerate(assignment.getPrompt() + "\"" + fullCode + "\"", getAiModelFromEnum(assignment.getAiModel()));
+		String feedback = ollamaService.ollamaGenerate(assignment.getPrompt() + "\"" + fullCode + "\"", 
+				getAiModelFromEnum(assignment.getAiModel()), options);
 		//add a table section containing the feedback from ollama
 		pdfService.addTableSection(table, assignment.getPdfFeedbackHeading(), feedback);
 		//write the document with the complete table
@@ -199,6 +203,15 @@ public class AssignmentRaterServiceImpl implements AssignmentRaterService{
 		}
 		//not found default to qwen coder 7b
 		return AIModel.QWEN_2_5_CODER_7B;
+	}
+	
+	private Options createOptionsBasedOnAssignment(Assignment assignment) {
+		Options options = new Options();
+		options.setTemperature(assignment.getTemperature());
+		options.setTopK(assignment.getTopK());
+		options.setTopP(assignment.getTopP());
+		options.setSeed(assignment.getSeed());
+		return options;
 	}
 
 	

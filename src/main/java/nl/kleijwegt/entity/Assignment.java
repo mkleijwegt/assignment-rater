@@ -1,5 +1,6 @@
 package nl.kleijwegt.entity;
 
+import java.math.BigDecimal;
 import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -47,6 +48,16 @@ public class Assignment {
 	private String aiModel;
 	
 	private String prompt;
+	
+	private BigDecimal temperature;
+	
+	@JsonProperty("top_k")
+	private BigDecimal topK;
+	
+	@JsonProperty("top_p")
+	private BigDecimal topP;
+	
+	private BigDecimal seed;
 	
 	private List<AssignmentFolder> folders;
 	
@@ -133,6 +144,38 @@ public class Assignment {
 	
 	public void setPrompt(String prompt) {
 		this.prompt = prompt;
+	}
+	
+	public BigDecimal getTemperature() {
+		return temperature;
+	}
+	
+	public void setTemperature(BigDecimal temperature) {
+		this.temperature = temperature;
+	}
+	
+	public BigDecimal getTopK() {
+		return topK;
+	}
+	
+	public void setTopK(BigDecimal topK) {
+		this.topK = topK;
+	}
+	
+	public BigDecimal getTopP() {
+		return topP;
+	}
+	
+	public void setTopP(BigDecimal topP) {
+		this.topP = topP;
+	}
+	
+	public BigDecimal getSeed() {
+		return seed;
+	}
+	
+	public void setSeed(BigDecimal seed) {
+		this.seed = seed;
 	}
 	
 	public List<AssignmentFolder> getFolders() {

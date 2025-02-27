@@ -33,7 +33,7 @@ public class LoadAssignmentFromJsonTest {
 
 	@Test
 	public void testLoadAssignmentFromJson() throws IOException, DocumentException, URISyntaxException{
-		Assignment assignment = jsonAssignmentService.readFile("symfony_oefen_p07.json");
+		Assignment assignment = jsonAssignmentService.readFile("symfony_tussentoets_p07_english_prompt.json");
 		log.debug(assignment);
 	}
 }
