@@ -14,6 +14,7 @@ import org.apache.commons.io.IOUtils;
 import org.glassfish.jersey.client.ClientConfig;
 import org.glassfish.jersey.http.HttpHeaders;
 import org.kohsuke.github.GHContent;
+import org.kohsuke.github.GHFileNotFoundException;
 import org.kohsuke.github.GHRepository;
 import org.kohsuke.github.GitHub;
 import org.kohsuke.github.GitHubBuilder;
@@ -206,7 +207,14 @@ public class GitHubServiceImpl implements GitHubService {
 	 */
 	private List<GHContent> getFilesFromFolder(String folder, String branchName,
 			GHRepository repository) throws IOException {
-		List<GHContent> folderFiles = repository.getDirectoryContent(folder, branchName);
+		List<GHContent> folderFiles = new ArrayList<>();
+	
+		try {
+			folderFiles = repository.getDirectoryContent(folder, branchName);
+		}
+		catch(GHFileNotFoundException e) {
+			//silently ignore
+		}
 		List<GHContent> files = new ArrayList<>();
 		for(GHContent content : folderFiles) {
 			if(content.isFile()) {
