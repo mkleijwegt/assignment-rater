@@ -59,6 +59,8 @@ public class Assignment {
 	
 	private BigDecimal seed;
 	
+	private Boolean includeFeedback = true;
+	
 	private List<AssignmentFolder> folders;
 	
 	@JsonProperty("file_types")
@@ -200,5 +202,13 @@ public class Assignment {
 
 	public void setQuestions(List<AssignmentQuestion> questions) {
 		this.questions = questions;
+	}
+
+	public Boolean getIncludeFeedback() {
+		return includeFeedback;
+	}
+	
+	public void setIncludeFeedback(Boolean includeFeedback) {
+		this.includeFeedback = includeFeedback;
 	}
 }

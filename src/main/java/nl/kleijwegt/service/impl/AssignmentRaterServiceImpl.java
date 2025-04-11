@@ -131,15 +131,18 @@ public class AssignmentRaterServiceImpl implements AssignmentRaterService{
 			pdfService.addTableSection(table, assignment.getPdfFileHeading() + " " + content.getName(), fileContent);
 			fullCode += fileContent;
 		}
-		//add a table section containing the prompt used
-		pdfService.addTableSection(table, assignment.getPdfPromptHeading(), assignment.getPrompt());
-		//create options object with information from assignment
-		Options options = createOptionsBasedOnAssignment(assignment);
-		//call ollama with the prompt, full code and AI model
-		String feedback = ollamaService.ollamaGenerate(assignment.getPrompt() + "\"" + fullCode + "\"", 
-				getAiModelFromEnum(assignment.getAiModel()), options);
-		//add a table section containing the feedback from ollama
-		pdfService.addTableSection(table, assignment.getPdfFeedbackHeading(), feedback);
+		//only add feedback if needed
+		if(assignment.getIncludeFeedback()) {
+			//add a table section containing the prompt used
+			pdfService.addTableSection(table, assignment.getPdfPromptHeading(), assignment.getPrompt());
+			//create options object with information from assignment
+			Options options = createOptionsBasedOnAssignment(assignment);
+			//call ollama with the prompt, full code and AI model
+			String feedback = ollamaService.ollamaGenerate(assignment.getPrompt() + "\"" + fullCode + "\"", 
+					getAiModelFromEnum(assignment.getAiModel()), options);
+			//add a table section containing the feedback from ollama
+			pdfService.addTableSection(table, assignment.getPdfFeedbackHeading(), feedback);
+		}
 		//write the document with the complete table
 		pdfService.writeDocument(table, filePath);
 	}

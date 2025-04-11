@@ -1,0 +1,35 @@
+{
+		"assignment_id": 745592,
+		"ai_model": "qwen2.5-coder:latest",
+		"title": "PHP Oefen P03",
+		"branch": "main",
+		"pdf_heading": "Hieronder vind je de uitwerking van de oefenopdrachten",
+		"pdf_file_heading": "Jouw uitwerking van",
+		"pdf_prompt_heading": "Gebruikte prompt:",
+		"pdf_feedback_heading": "Gegenereerde AI feedback:",
+		"pdf_result_folder": "php-oefen-p03",
+		"prompt": "",
+		"temperature": "0",
+		"top_k": "1",
+		"top_p": "0.1",
+		"seed": "123",
+		"file_types": [
+			{
+				"file_type": ".php"
+			},
+			{
+				"file_type": ".html"
+			},
+			{
+				"file_type": ".css"
+			}
+		],
+		"folders": [
+			{
+				"folder": "/"
+			}
+		],
+		"questions": [
+			
+		]
+}
