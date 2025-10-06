@@ -1,0 +1,38 @@
+{
+		"assignment_id": 863554,
+		"ai_model": "qwen2.5-coder:14b",
+		"title": "Symfony Tussentoets P05",
+		"branch": "main",
+		"pdf_heading": "Hieronder vind je de feedback op de tussentoets. Let op: deze feedback is AI gegenereerd en kan daardoor onjuistheden bevatten.",
+		"pdf_file_heading": "Jouw uitwerking van",
+		"pdf_prompt_heading": "Gebruikte prompt:",
+		"pdf_feedback_heading": "Gegenereerde AI feedback:",
+		"pdf_result_folder": "symfony-tussentoets-p05-2",
+		"prompt": "Beantwoord de volgende vragen over de gegeven code. 1. Is er een Student entiteit met de eigenschappen firstName, lastName, email en age? 2. Is er een age eigenschap op de Student entiteit met datatype int. 3. Is er een pagina die alle studenten weergeeft (met gebruik van een for loop) opgehaald vanuit de database door gebruik te maken van de Student entiteit? 4. Is er een pagina die één student weergeeft aan hand van de id opgehaald uit de database door gebruik te maken van de student entiteit? 5. Is er een Vacation entiteit met de eigenschappen name, fromDate, tillDate? 6. Maken de fromDate en tillDate op de Vacation entiteit gebruik van het datatype DateTimeInterface of DateTime? 7. Is er een pagina die alle vakanties toont (door gebruik te maken van een for loop) opgehaald uit de database door gebruik te maken van de Vacation entiteit? Geef positieve feedback op de code en geef alleen code suggesties voor Symfony 6.4. De code:",
+		"temperature": "0.8",
+		"top_k": "20",
+		"top_p": "0.9",
+		"seed": "42",
+		"file_types": [
+			{
+				"file_type": ".php"
+			},
+			{
+				"file_type": ".html.twig"
+			}
+		],
+		"folders": [
+			{
+				"folder": "/src/Controller"
+			},
+			{
+				"folder": "/src/Entity"
+			},
+			{
+				"folder": "/templates"
+			}
+		],
+		"questions": [
+			
+		]
+}

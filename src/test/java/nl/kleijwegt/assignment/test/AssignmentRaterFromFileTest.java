@@ -39,8 +39,8 @@ public class AssignmentRaterFromFileTest {
 	@Test
 	public void testAssignment() throws IOException, DocumentException, URISyntaxException{
 		
-		Assignment assignment = jsonAssignmentService.readFile("php_oefen_p03.json");
-		assignment.setIncludeFeedback(false);
+		Assignment assignment = jsonAssignmentService.readFile("symfony_tussentoets_p05.json");
+		//assignment.setIncludeFeedback(false);
 		
 		assignmentRaterService.rateAssignment(assignment);
 			

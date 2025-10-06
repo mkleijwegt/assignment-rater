@@ -1,9 +1,9 @@
 {
 		"assignment_id": 787177,
-		"ai_model": "qwen2.5-coder:latest",
+		"ai_model": "qwen2.5-coder:14b",
 		"title": "Symfony Eindtoets P07",
 		"branch": "main",
-		"pdf_heading": "Hieronder vind je de feedback op de tussentoets. Let op: deze feedback is AI gegenereerd en kan daardoor onjuistheden bevatten.",
+		"pdf_heading": "Hieronder vind je de feedback op de eindtoets. Let op: deze feedback is AI gegenereerd en kan daardoor onjuistheden bevatten.",
 		"pdf_file_heading": "Jouw uitwerking van",
 		"pdf_prompt_heading": "Gebruikte prompt:",
 		"pdf_feedback_heading": "Gegenereerde AI feedback:",
